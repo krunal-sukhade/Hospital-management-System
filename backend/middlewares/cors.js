@@ -1,7 +1,7 @@
 const cors = require("cors");
 
 const corsOptions = {
-  origin: "*",
+  origin: "https://hospital-management-system-sigma-one.vercel.app/",
   credentials: true,
   optionSuccessStatus: 200,
 };
