@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const corsMiddleware = require("./middlewares/cors");
+const cookieParser = require("cookie-parser"); 
 const errorHandlerMiddleware = require("./middlewares/errorHandler");
 const connectToDatabase = require("./db/mongoose");
 const authController = require("./controllers/authController");
