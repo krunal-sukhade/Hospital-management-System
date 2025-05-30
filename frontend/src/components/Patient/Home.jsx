@@ -36,7 +36,10 @@ function Home() {
     const [email, setEmail] = useState("");
     const handleNewsletter = async (e) => {
         e.preventDefault();
-        await axios.post(`${import.meta.env.VITE_API_URL}/admin/new-letter`, { email })
+        await axios.post(`${import.meta.env.VITE_API_URL}/admin/new-letter`, { email },
+            {
+                withCredentials: true
+            })
             .then(() => {
                 Swal.fire({
                     title: "Success",
