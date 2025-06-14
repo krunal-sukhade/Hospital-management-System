@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import profiePic from "../../../assets/human6.jpg";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import UserSidebar from "./UserSidebar";
 import Swal from "sweetalert2";
@@ -16,6 +17,8 @@ function UserProfile() {
   const [dateOfBirth, setdateofBirth] = useState("");
   const [gender, setGender] = useState("");
   const [email, setEmail] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchInfo = async (e) => {
@@ -66,7 +69,7 @@ function UserProfile() {
             });
             const user = res.data.user;
             localStorage.setItem("user", JSON.stringify(user));
-            window.location.href = "/user-profile";
+            navigate("/user-profile");
           }
         });
     } catch (err) {
