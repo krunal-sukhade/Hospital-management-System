@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import profilePic from "../../../assets/doct5.jpg";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import NurseSidebar from "./NurseSidebar";
@@ -15,6 +16,7 @@ function NurseProfile() {
   const [dob, setdateofBirth] = useState("");
   const [gender, setGender] = useState("");
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchInfo = async (e) => {
@@ -65,7 +67,7 @@ function NurseProfile() {
             });
             const user = res.data.user;
             localStorage.setItem("user", JSON.stringify(user));
-            window.location.href = "/nurse-profile";
+            navigate("/nurse-profile");
           }
         });
     } catch (err) {

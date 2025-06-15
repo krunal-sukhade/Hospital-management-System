@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import { logout } from "../../../redux/UserSlice.js";
 import docProfile from "../../../assets/doct2.jpg";
@@ -14,6 +15,7 @@ const DoctorSidebar = ({ profilePic, userName }) => {
   };
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSignOut = async (e) => {
     e.preventDefault();
@@ -21,7 +23,7 @@ const DoctorSidebar = ({ profilePic, userName }) => {
       if (res.data.message === "User Logged Out") {
         localStorage.removeItem("user");
         dispatch(logout());
-        window.location.href = "/";
+        navigate("/");
       }
     });
   };
