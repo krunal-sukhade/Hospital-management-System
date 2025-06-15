@@ -93,6 +93,8 @@ router.get("/get-appointments/:id", async (req, res) => {
       return res.status(404).json({ message: "Doctor not found" });
     }
 
+    
+
     const appointments = await Appointment.find({ doctor : doctor.name });
     
     if(appointments.length === 0){
