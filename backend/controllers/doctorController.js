@@ -87,7 +87,7 @@ router.post("/add-doctor", async (req, res) => {
 router.get("/get-appointments/:id", async (req, res) => {
   const doctorId = req.params.id;
   try{
-    const doctor = await Doctor.findById(id);
+    const doctor = await Doctor.findById(doctorId);
 
     if (!doctor) {
       return res.status(404).json({ message: "Doctor not found" });
