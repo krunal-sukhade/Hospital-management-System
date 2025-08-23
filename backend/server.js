@@ -11,6 +11,7 @@ const nurseController = require("./controllers/nurseController");
 const appointmentController = require("./controllers/appointmentController");
 const adminController = require("./controllers/adminController");
 const limiter = require("./middlewares/rateLimiter");
+const path = require("path");
 const router = express.Router();
 const app = express();
 
