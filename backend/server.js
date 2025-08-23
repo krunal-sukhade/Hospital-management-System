@@ -26,6 +26,14 @@ app.use("/doctor",limiter, doctorController);
 app.use("/nurse",limiter, nurseController);
 app.use("/appointment",limiter, appointmentController);
 app.use("/admin",limiter, adminController);
+
+app.use(express.static(path.join(__dirname, "frontend/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend/build", "index.html"));
+});
+
+
 app.use(errorHandlerMiddleware);
 
 (async () => {
